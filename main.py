@@ -1,5 +1,8 @@
 """main.py
 
+Author: Elijah Barrett
+Date: July 11, 2019
+
 This program's purpose is to plot each OMSCS course's Average Difficulty vs Average Rating and
 Average Work vs Average Rating.
 
