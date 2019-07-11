@@ -8,8 +8,6 @@ List = [(Course, Work, Difficulty, Rating)]
 """
 
 import matplotlib.pyplot as plt
-from random import randint
-import numpy as np
 
 courses = [
     ('IIS', 8.763, 2.372, 3.913),
@@ -47,12 +45,34 @@ average_work = [x for (w, x, y, z) in courses]
 average_difficulty = [y for (w, x, y, z) in courses]
 average_rating = [z for (w, x, y, z) in courses]
 
-fig = plt.scatter(average_rating, average_difficulty)
-fig2 = plt.plot([2, 3, 4, 5], [2, 3, 4, 5])
+fig = plt.figure()
+plt.scatter(average_rating, average_difficulty)
+plt.plot([2, 3, 4, 5], [2, 3, 4, 5])
 for i, txt in enumerate(course_name):
     plt.annotate(txt, (average_rating[i], average_difficulty[i]))
-
+plt.title('Average Rating vs Average Difficulty')
 plt.xlabel('Average Student Rating')
 plt.ylabel('Average Difficulty')
-plt.show()
-print(course_name)
+fig.show()
+#fig.savefig('rating_vs_difficulty.png')
+
+fig2 = plt.figure()
+plt.scatter(average_rating, average_work)
+for i, txt in enumerate(course_name):
+    plt.annotate(txt, (average_rating[i], average_work[i]))
+plt.title('Average Rating vs Average Workload')
+plt.xlabel('Average Student Rating')
+plt.ylabel('Average Workload per week')
+fig2.show()
+#fig3.savefig('rating_vs_workload.png')
+
+fig3 = plt.figure()
+plt.scatter(average_difficulty, average_work)
+for i, txt in enumerate(course_name):
+    plt.annotate(txt, (average_difficulty[i], average_work[i]))
+plt.title('Average Difficulty vs Average Workload')
+plt.xlabel('Average Difficulty')
+plt.ylabel('Average Workload per week')
+fig3.show()
+#fig4.savefig('difficulty_vs_workload.png')
+
